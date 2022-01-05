@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+    <title>Document</title>
 </head>
 <style>
     *{
@@ -29,9 +27,12 @@
     }
 </style>
 <body>
-    <h1>This is the game of life or death. </h1>
-    <h2>Click 'Play' to begin</h2>
-    <button class="button"> <a href='/room1'>Play</a> </button>
-    <p>** This game was inspired by Alice in Borderland **</p>
+    <h1>Welcome. Please log in.</h1>
+    <form action="/signup" method= "POST">
+        <p><input type="text" name="username" placeholder="Enter username"></p>
+        <p><input type="password" name="password" placeholder="Enter password"></p>
+
+        <input type="submit" value="Sign up!">
+    </form>
 </body>
 </html>
