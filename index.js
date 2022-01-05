@@ -28,9 +28,15 @@ app.get("/", (req,res) => {
     res.render("index", {my_user : user});
 }) 
 app.post("/signup", (req,res) => {
-    const validUsers = ["adlin", "miso"];
+    const valid_users = [
+        {"name": "adlin", "password": "ahmed"},
+        {"name": "miso", "password": "piso"}
+    ];
     const user = req.body.username;
-    if (validUsers.includes(user)) {
+    const pass = req.body.password;
+    const found_user = valid_users.find(use => use.name == user && use.password == pass);
+    ;
+    if (found_user) {
         req.session.username = user;
         res.redirect("/welcome");
     } else {
@@ -44,10 +50,8 @@ app.post("/signup", (req,res) => {
 
 }) 
 app.get("/welcome/", (req,res) => {
-    // const user = req.body.username;
 
     if (req.session && req.session.username) {
-        // res.send(`Welcome ${user}`);
         res.render("welcome", {user: req.session.username}); 
     } else {
         res.redirect("/");
@@ -55,44 +59,74 @@ app.get("/welcome/", (req,res) => {
 })
 
 app.get("/room1/", (req,res) => {
-    res.render("room1");
-})
+    if (req.session && req.session.username) {
+        res.render("room1", {user: req.session.username}); 
+    } else {
+        res.redirect("/");
+    }})
 
 app.get("/room2/", (req,res) => {
-    res.render("room2");
-})
+    if (req.session && req.session.username) {
+        res.render("room2", {user: req.session.username}); 
+    } else {
+        res.redirect("/");
+    }})
 
 app.get("/room3/", (req,res) => {
-    res.render("room3");
-})
+    if (req.session && req.session.username) {
+        res.render("room3", {user: req.session.username}); 
+    } else {
+        res.redirect("/");
+    }})
 
 app.get("/room4/", (req,res) => {
-    res.render("room4");
-})
+    if (req.session && req.session.username) {
+        res.render("room4", {user: req.session.username}); 
+    } else {
+        res.redirect("/");
+    }})
 
 app.get("/room5/", (req,res) => {
-    res.render("room5");
-})
+    if (req.session && req.session.username) {
+        res.render("room5", {user: req.session.username}); 
+    } else {
+        res.redirect("/");
+    }})
 
 app.get("/room6/", (req,res) => {
-    res.render("room6");
-})
+    if (req.session && req.session.username) {
+        res.render("room6", {user: req.session.username}); 
+    } else {
+        res.redirect("/");
+    }})
 
 app.get("/room7/", (req,res) => {
-    res.render("room7");
-})
+    if (req.session && req.session.username) {
+        res.render("room7", {user: req.session.username}); 
+    } else {
+        res.redirect("/");
+    }})
 
 app.get("/room8/", (req,res) => {
-    res.render("room8");
-})
+    if (req.session && req.session.username) {
+        res.render("room8", {user: req.session.username}); 
+    } else {
+        res.redirect("/");
+    }})
 
 app.get("/lose/", (req,res) => {
-    res.render("lose");
-})
+    if (req.session && req.session.username) {
+        res.render("lose", {user: req.session.username}); 
+    } else {
+        res.redirect("/");
+    }})
 
 app.get("/win/", (req,res) => {
-    res.render("win");
-})
+    if (req.session && req.session.username) {
+        res.render("win", {user: req.session.username}); 
+    } else {
+        res.redirect("/");
+    }})
 
 app.listen(port, ()=> {
     console.log('listening on ${port}');
